@@ -1,1 +1,2 @@
-(function(){%output%})(this)
+(function($){%output%})(jQuery)
+//# sourceMappingURL=output.js.map

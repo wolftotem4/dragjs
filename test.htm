@@ -13,6 +13,7 @@
   height: 300px;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <div id="area" class="area">
@@ -20,11 +21,14 @@
 
 <script src="node_modules/google-closure-library/closure/goog/base.js"></script>
 <script src="lib/main.js"></script>
+<script src="lib/drop/dropzone_event.js"></script>
+<script src="lib/drop/dropzone.js"></script>
 <script>
 (function () {
   var area = document.getElementById('area');
-  var dropzone = dragjs.drop.DropZone(area);
-});
+  var dropzone = new dragjs.drop.DropZone(area);
+  // dropzone.initEvent();
+})();
 </script>
 </body>
 </html>
