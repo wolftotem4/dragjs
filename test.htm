@@ -5,10 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Document</title>
+<style>
+.area {
+  display: block;
+  background: #ccc;
+  width: 300px;
+  height: 300px;
+}
+</style>
 </head>
 <body>
+<div id="area" class="area">
+</div>
 
-<script src="dist/output.min.js"></script>
-<script>var d = new drag.main;d.hello();</script>
+<script src="node_modules/google-closure-library/closure/goog/base.js"></script>
+<script src="lib/main.js"></script>
+<script>
+(function () {
+  var area = document.getElementById('area');
+  var dropzone = dragjs.drop.DropZone(area);
+});
+</script>
 </body>
 </html>
