@@ -15,7 +15,8 @@ gulp.task('closure-compiler', function () {
     fileName: 'output.min.js',
     compilerFlags: {
       externs: [
-        'externs/**/*.js'
+        compilerPackage.compiler.CONTRIB_PATH + '/externs/jquery-3.2.js',
+        'externs/**/*.js',
       ],
       generate_exports: true,
       warning_level: 'VERBOSE',
@@ -24,7 +25,14 @@ gulp.task('closure-compiler', function () {
       language_out: 'ECMASCRIPT5',
       compilation_level: 'ADVANCED_OPTIMIZATIONS',
       create_source_map: 'dist/output.js.map',
-      output_wrapper_file: 'build/wrapper.template.js'
+      output_wrapper_file: 'build/wrapper.template.js',
+      define: [
+        'COMPILED=true',
+        'goog.STRICT_MODE_COMPATIBLE=true',
+        'goog.ENABLE_DEBUG_LOADER=false',
+        'goog.DEBUG=false',
+        'goog.asserts.ENABLE_ASSERTS=false',
+      ],
     }
   }))
   .pipe(gulp.dest('dist'));
