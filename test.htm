@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,15 +18,22 @@
 <body>
 <div id="area" class="area">
 </div>
+<img src="http://placekitten.com/408/287" alt="">
 
 <script src="node_modules/google-closure-library/closure/goog/base.js"></script>
-<script src="lib/main.js"></script>
+<script src="lib/datatransfer/direntry_reader.js"></script>
+<script src="lib/datatransfer/fileentry_reader.js"></script>
+<script src="lib/datatransfer/entry_traveler.js"></script>
+<script src="lib/datatransfer/datatransfer.js"></script>
 <script src="lib/drop/dropzone_event.js"></script>
 <script src="lib/drop/dropzone.js"></script>
 <script>
 (function () {
   var area = document.getElementById('area');
   var dropzone = new dragjs.drop.DropZone(area);
+  dropzone.drop(function (e, files) {
+    console.dir(files);
+  });
 })();
 </script>
 </body>

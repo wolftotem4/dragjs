@@ -31,7 +31,7 @@ gulp.task('closure-compiler', function () {
         'goog.STRICT_MODE_COMPATIBLE=true',
         'goog.ENABLE_DEBUG_LOADER=false',
         'goog.DEBUG=false',
-        'goog.asserts.ENABLE_ASSERTS=false',
+        // 'goog.asserts.ENABLE_ASSERTS=false',
       ],
     }
   }))

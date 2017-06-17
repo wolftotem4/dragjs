@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +13,21 @@
   height: 300px;
 }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <div id="area" class="area">
 </div>
+<img src="http://placekitten.com/408/287" alt="">
 
 <script src="dist/output.min.js"></script>
 <script>
 (function () {
   var area = document.getElementById('area');
   var dropzone = new dragjs.drop.DropZone(area);
+  dropzone.drop(function (e, files) {
+    console.dir(files);
+  });
 })();
 </script>
 </body>
