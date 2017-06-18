@@ -32,6 +32,7 @@
 </form>
 
 <script src="../../node_modules/google-closure-library/closure/goog/base.js"></script>
+<script src="../../lib/closure/ajax/upload.js"></script>
 <script src="../../lib/closure/upload/uploader.js"></script>
 <script>
 (function() {
@@ -40,7 +41,7 @@
     var $input = $('#file');
 
     var files = $input.prop('files');
-    var uploader = new dragjs.upload.Uploader(files);
+    var uploader = new dragjs.upload.Uploader(files, "response.json");
 
     uploader.run();
   });
