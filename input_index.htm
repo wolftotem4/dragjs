@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<fieldset>
+  <legend>input[type="file"]</legend>
+  <form method="post" action="" enctype="multipart/form-data">
+    <input id="file" type="file">
+    <button type="submit">submit</button>
+  </form>
+</fieldset>
+<fieldset>
+  <legend>input[type="file",webkitdirectory,allowdirs,directory]</legend>
+  <form method="post" action="" enctype="multipart/form-data">
+    <input id="dir" type="file" webkitdirectory allowdirs directory>
+    <button type="submit">submit</button>
+  </form>
+</fieldset>
+<script>
+(function($) {
+  var file_input = document.getElementById('file');
+  var dir_input = document.getElementById('dir');
+
+  $([file_input, dir_input]).on('change', function (e) {
+    var target = e.currentTarget;
+    var files = target.files;
+    // var array = Array.prototype.slice.apply(files);
+    console.dir(files);
+  });
+})(jQuery);
+</script>
+</body>
+</html>

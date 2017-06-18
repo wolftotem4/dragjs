@@ -1,1 +1,0 @@
-goog.require('drag.main');

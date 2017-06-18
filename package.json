@@ -11,7 +11,6 @@
   "dependencies": {
     "google-closure-compiler": "^20170521.0.0",
     "google-closure-library": "^20170521.0.0",
-    "gulp": "^3.9.1",
-    "gulp-closure-compiler": "^0.4.0"
+    "gulp": "^3.9.1"
   }
 }
