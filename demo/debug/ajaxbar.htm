@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+.ajaxbar {
+  background: #ececec;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.bar {
+  height: 5px;
+  background: #fff;
+}
+</style>
+</head>
+<body>
+<div class="">
+  <div class="ajaxbar">
+    <div class="bar" style="width:50%;"></div>
+    <div class="filename">test.jpg</div>
+  </div>
+</div>
+<form id="form" method="post" action="" enctype="multipart/form-data">
+  <input type="file" name="file" id="file" multiple>
+  <button type="submit">upload!</button>
+</form>
+
+<script src="../../node_modules/google-closure-library/closure/goog/base.js"></script>
+<script src="../../lib/closure/upload/uploader.js"></script>
+<script>
+(function() {
+  $('#form').submit(function (e) {
+    e.preventDefault();
+    var $input = $('#file');
+
+    var files = $input.prop('files');
+    var uploader = new dragjs.upload.Uploader(files);
+
+    uploader.run();
+  });
+})(jQuery);
+</script>
+</body>
+</html>
