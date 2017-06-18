@@ -30,7 +30,6 @@
   $([file_input, dir_input]).on('change', function (e) {
     var target = e.currentTarget;
     var files = target.files;
-    // var array = Array.prototype.slice.apply(files);
     console.dir(files);
   });
 })(jQuery);
