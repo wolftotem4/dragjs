@@ -1,13 +1,15 @@
 /*jshint node:true */
 "use strict";
 
-var gulp = require('gulp');
-var uglify = require('gulp-uglify');
+var gulp            = require('gulp');
+var uglify          = require('gulp-uglify');
+var saveLicense     = require('uglify-save-license');
+var concat          = require('gulp-concat');
 var compilerPackage = require('google-closure-compiler');
 var closureCompiler = compilerPackage.gulp();
-var sourcemaps = require('gulp-sourcemaps');
-var path = require('path');
-var pump = require('pump');
+var sourcemaps      = require('gulp-sourcemaps');
+var path            = require('path');
+var pump            = require('pump');
 
 var googBasePath = path.resolve(require.resolve('google-closure-library'), '..', '..', 'base.js');
 
@@ -51,7 +53,11 @@ gulp.task('dropzone', function () {
 gulp.task('dragjs-jquery', function (cb) {
   pump([
     gulp.src('lib/drag.jquery.js'),
-    uglify(),
+    uglify({
+      output: {
+        comments: saveLicense
+      }
+    }),
     gulp.dest('dist')
   ], cb);
 });
@@ -61,16 +67,22 @@ gulp.task('dragjs-closure', function () {
     googBasePath,
     'lib/closure/**/*.js'
   ], {base: './'})
-  .pipe(sourcemaps.init())
   .pipe(closureCompiler(
     Object.assign({}, compilerFlags, {
       js_output_file: 'dragjs.min.js',
     })
   ))
-  .pipe(sourcemaps.write('/'))
   .pipe(gulp.dest('dist'));
 });
 
-gulp.task('dragjs', ['dragjs-closure', 'dragjs-jquery']);
+gulp.task('dragjs-concat', function () {
+  return gulp.src(['dist/drag.jquery.js', 'dist/dragjs.min.js'])
+    .pipe(concat('dragjs.jquery.min.js'))
+    .pipe(gulp.dest('./dist/'));
+});
 
-gulp.task('default', ['dragjs']);
+gulp.task('dragjs', gulp.series(gulp.parallel('dragjs-closure', 'dragjs-jquery'), 'dragjs-concat'));
+
+gulp.task('all', gulp.parallel('dragjs', 'dropzone'));
+
+gulp.task('default', gulp.parallel('dragjs'));
