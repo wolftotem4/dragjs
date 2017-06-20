@@ -2,7 +2,7 @@
   "name": "dragjs",
   "version": "0.4.0",
   "description": "A jQuery plugin for file drag-and-drop.",
-  "main": "dist/dragjs.jquery.min.js",
+  "main": "dragjs.jquery.min.js",
   "scripts": {
     "build": "gulp dragjs",
     "build:dropzone": "gulp dropzone",
