@@ -1,7 +1,5 @@
 # drag.js
 
-**This project is still under development.**
-
 ## Introduction
 
 A jQuery plugin for File Drag-and-Drop.
@@ -12,6 +10,7 @@ A jQuery plugin for File Drag-and-Drop.
 
 * A pure library.
 * Lightweight (~6.19 KiB)
+* Folders upload
 
 **You need to deal with AJAX and the rest.**
 
@@ -80,7 +79,7 @@ $('#droparea').dragjs(callback, {
 });
 ```
 
-## &lt;input type="file"&gt; ?
+## <input type="file">
 
 ```js
 function upload(files) {
