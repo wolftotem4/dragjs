@@ -44,7 +44,7 @@ A jQuery plugin for File Drag-and-Drop.
       data: formData
     });
   });
-}) (jQuery);
+})(jQuery);
 </script>
 ```
 
@@ -87,7 +87,7 @@ function upload(files) {
     type: 'pot',
     url: 'upload.php',
     data: dragjs.toFormData(files, 'files[]')
-  })
+  });
 }
 
 /* for users who uses <input type="file"> for update. */
@@ -96,6 +96,7 @@ $('#file_input').change(function(e) {
 });
 
 // $('#form').submit(function(e) {
+//   e.preventDefault();
 //   var files = $('#file_input').prop('files');
 //   upload(files);
 // });
