@@ -24,6 +24,7 @@ var compilerFlags = {
   language_out: 'ECMASCRIPT5',
   compilation_level: 'ADVANCED',
   output_wrapper_file: 'build/wrapper.template.js',
+  // rewrite_polyfills: false,
   define: [
     'COMPILED=true',
     'goog.STRICT_MODE_COMPATIBLE=true',
@@ -75,7 +76,7 @@ gulp.task('dragjs-closure', function () {
 gulp.task('dragjs-concat', function () {
   return gulp.src(['dist/drag.jquery.js', 'dist/dragjs.min.js'])
     .pipe(concat('dragjs.jquery.min.js'))
-    .pipe(uglify())
+    .pipe(uglify({ie8: true}))
     .pipe(gulp.dest('./dist/'));
 });
 

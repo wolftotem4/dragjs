@@ -9,7 +9,7 @@ A jQuery plugin for File Drag-and-Drop.
 ## Features
 
 * A pure library.
-* Lightweight (~6.19 KiB)
+* Lightweight (~6.31 KiB)
 * Folders upload
 
 **You need to deal with AJAX and the rest.**
@@ -79,7 +79,7 @@ $('#droparea').dragjs(callback, {
 });
 ```
 
-## <input type="file">
+## Cooperate with INPUT tag
 
 ```js
 function upload(files) {
@@ -90,14 +90,17 @@ function upload(files) {
   })
 }
 
-// for users who uses <input type="file"> for update.
+/* for users who uses <input type="file"> for update. */
 $('#file_input').change(function(e) {
-  // or $('#form').submit. you know what that means.
-
   upload(this.files);
 });
 
-// for users who uses drag-and-drop file upload.
+// $('#form').submit(function(e) {
+//   var files = $('#file_input').prop('files');
+//   upload(files);
+// });
+
+/* for users who uses drag-and-drop file upload. */
 $('#droparea').dragjs(upload);
 ```
 
