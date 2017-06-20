@@ -1,9 +1,11 @@
 {
   "name": "dragjs",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "0.4.0",
+  "description": "A jQuery plugin for file drag-and-drop.",
+  "main": "dist/dragjs.jquery.min.js",
   "scripts": {
+    "build": "gulp dragjs",
+    "build:dropzone": "gulp dropzone",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Randolph",

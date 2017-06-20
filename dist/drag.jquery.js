@@ -1,1 +1,0 @@
-!function(n){n.fn.dragjs=function(r,o){return this.each(function(){var i=new dragjs.drop.DropZone(this,o);n.isFunction(r)&&i.drop(r)})}}(jQuery);
