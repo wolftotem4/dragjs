@@ -4,8 +4,6 @@
 
 A jQuery plugin for File Drag-and-Drop.
 
-**WARNING!** The project is still under development.
-
 ## Features
 
 * A pure library.
@@ -79,7 +77,7 @@ $('#droparea').dragjs(callback, {
 });
 ```
 
-## Cooperate with INPUT tag
+## INPUT tag upload
 
 ```js
 function upload(files) {
@@ -90,7 +88,7 @@ function upload(files) {
   });
 }
 
-/* for users who uses <input type="file"> for update. */
+/* for users who uses <input type="file"> for upload. */
 $('#file_input').change(function(e) {
   upload(this.files);
 });
@@ -108,6 +106,7 @@ $('#droparea').dragjs(upload);
 ## Browser Support
 
 * Internet Explorer 10+
+* Microsoft Edge
 * Google Chrome
 * Mozilla Firefox
 
