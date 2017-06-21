@@ -37,6 +37,7 @@ var compilerFlags = {
 gulp.task('dropzone', function () {
   return gulp.src([
     googBasePath,
+    'lib/closure/dragjs.js',
     'lib/closure/datatransfer/**/*.js',
     'lib/closure/drop/**/*.js',
   ], {base: './'})

@@ -113,6 +113,6 @@ $('#droparea').dragjs(upload);
 
 ## Internet Explorer 9 and older
 
-Since Internet Explorer 9 and older don't support file drag-and-drop functions, you need to find other library with Flash, Java or others plugin.
+Since Internet Explorer 9 and older don't support file functions, you need to find other library with Flash, Java or other plugins.
 
 This library is fully focus on JavaScript support.
